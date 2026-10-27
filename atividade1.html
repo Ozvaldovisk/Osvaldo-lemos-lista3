@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuários</title>
+    <style>
+        
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        #cards {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap; 
+            margin-bottom: 20px;
+        }
+        .card {
+            border: 1px solid #000;
+            padding: 15px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 16px;
+        }
+        .card p {
+            font-size: 12px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Usuários</h2>
+    
+    
+    <div id="cards"></div>
+
+    <script>
+        
+        const usuarios = [
+            { id: 1, name: "Leanne Graham", email: "Sincere@april.biz", address: { city: "Gwenborough" }, company: { name: "Romaguera-Crona" } },
+            { id: 2, name: "Ervin Howell", email: "Shanna@melissa.tv", address: { city: "Wisokyburgh" }, company: { name: "Deckow-Crist" } },
+            { id: 3, name: "Clementine Bauch", email: "Nathan@yesenia.net", address: { city: "McKenziehaven" }, company: { name: "Romaguera-Jacobson" } },
+            { id: 4, name: "Patricia Lebsack", email: "Julianne.OConner@kory.org", address: { city: "South Elvis" }, company: { name: "Robel-Corkery" } }
+        ];
+
+        const containerCards = document.getElementById('cards');
+
+        
+        usuarios.forEach(usuario => {
+            
+            const card = document.createElement('div');
+            card.classList.add('card'); 
+
+            const nome = document.createElement('h3');
+            nome.textContent = usuario.name;
+
+            const email = document.createElement('p');
+            email.textContent = `E-mail: ${usuario.email}`;
+
+            const cidade = document.createElement('p');
+            cidade.textContent = `Cidade: ${usuario.address.city}`;
+
+            const empresa = document.createElement('p');
+            empresa.textContent = `Empresa: ${usuario.company.name}`;
+
+            card.appendChild(nome);
+            card.appendChild(email);
+            card.appendChild(cidade);
+            card.appendChild(empresa);
+
+            
+            containerCards.appendChild(card);
+        });
+
+        const totalUsuarios = document.createElement('p');
+
+        totalUsuarios.innerHTML = `<strong>Total de usuários:</strong> ${usuarios.length}`;
+        
+        document.body.appendChild(totalUsuarios);
+
+    </script>
+
+</body>
+</html>
